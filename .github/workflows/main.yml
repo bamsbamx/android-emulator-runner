@@ -1,14 +1,16 @@
-name: Main workflow
+name: Android Instrumented Tests
 on:
   workflow_call:
   pull_request:
     paths-ignore:
       - '**.md'
+      - 'art/**'
   push:
     branches:
       - main
     paths-ignore:
       - '**.md'
+      - 'art/**'
 
 jobs:
   test:
@@ -19,10 +21,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-#        api-level: [23, 29]
-#        target: [default, google_apis]
         api-level: [34]
-        target: [default]
         arch: ["x86_64"]
 
     steps:
