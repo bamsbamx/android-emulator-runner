@@ -166,12 +166,12 @@ jobs:
     - name: Setup Gradle and Gradle cache
       uses: gradle/actions/setup-gradle@v3
 
-    - name: Create local.properties with SDK location
-      run: |
-        echo "sdk.dir=$ANDROID_HOME" > local.properties
-        echo "MAPS_API_KEY=${{ secrets.MAPS_API_KEY }}" >> local.properties
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+    # - name: Create local.properties with SDK location
+    #   run: |
+    #     echo "sdk.dir=$ANDROID_HOME" > local.properties
+    #     echo "MAPS_API_KEY=${{ secrets.MAPS_API_KEY }}" >> local.properties
+    # - name: Grant execute permission for gradlew
+    #   run: chmod +x gradlew
 
     - name: Create AVD and generate snapshot for caching
       if: steps.avd-cache.outputs.cache-hit != 'true'
