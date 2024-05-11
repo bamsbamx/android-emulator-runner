@@ -142,8 +142,8 @@ jobs:
 
     - name: Run tests
       uses: reactivecircus/android-emulator-runner@v2
-      env:
-        MAPBOX_DOWNLOADS_TOKEN: ${{ secrets.MAPBOX_DOWNLOADS_TOKEN }}
+      # env:
+      #   MAPBOX_DOWNLOADS_TOKEN: ${{ secrets.MAPBOX_DOWNLOADS_TOKEN }}
       with:
         api-level: ${{ matrix.api-level }}
         arch: ${{ matrix.arch }}
