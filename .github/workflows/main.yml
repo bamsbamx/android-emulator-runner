@@ -32,12 +32,12 @@ jobs:
     - name: validate gradle wrapper
       uses: gradle/wrapper-validation-action@v2
 
-#     - name: build, test and lint
-#       run: |
-#         npm install
-#         npm run build
-#         npm run lint
-#         npm test
+    - name: build, test and lint
+      run: |
+        npm install
+        npm run build
+        npm run lint
+        npm test
 
     - uses: actions/setup-java@v4
       with:
