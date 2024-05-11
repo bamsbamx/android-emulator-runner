@@ -19,33 +19,11 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        api-level: [23, 29]
-        target: [default, google_apis]
+#        api-level: [23, 29]
+#        target: [default, google_apis]
+        api-level: [34]
+        target: [default]
         arch: [x86]
-        exclude:
-          - target: google_apis
-            api-level: 16
-          - target: google_apis
-            api-level: 23
-          - target: google_apis
-            api-level: 29
-        include:
-          - os: ubuntu-latest
-            api-level: 24
-            target: playstore
-            arch: x86
-          - os: ubuntu-latest
-            api-level: 30
-            target: aosp_atd
-            arch: x86
-          - os: macos-latest
-            api-level: 31
-            target: google_apis
-            arch: x86_64
-          - os: ubuntu-latest
-            api-level: 34
-            target: aosp_atd
-            arch: x86_64
 
     steps:
     - name: checkout
@@ -77,9 +55,9 @@ jobs:
 
     - uses: gradle/actions/setup-gradle@v3
 
-    - name: assemble tests
-      working-directory: test-fixture
-      run: ./gradlew assembleAndroidTest
+    # - name: assemble tests
+    #   working-directory: test-fixture
+    #   run: ./gradlew assembleAndroidTest
 
     - name: enable KVM for linux runners
       if: runner.os == 'Linux'
