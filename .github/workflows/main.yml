@@ -72,15 +72,10 @@ jobs:
         api-level: ${{ matrix.api-level }}
         target: ${{ matrix.target }}
         arch: ${{ matrix.arch }}
-        profile: Galaxy Nexus
-        cores: 2
-        sdcard-path-or-size: 100M
-        avd-name: test
         force-avd-creation: false
-        emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+        emulator-options: -no-metrics -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
         disable-animations: false
         working-directory: ./test-fixture/
-        channel: canary
         script: echo "Generated AVD snapshot for caching."
 
     - name: run action
@@ -89,16 +84,10 @@ jobs:
         api-level: ${{ matrix.api-level }}
         target: ${{ matrix.target }}
         arch: ${{ matrix.arch }}
-        profile: Galaxy Nexus
-        cores: 2
-        ram-size: 2048M
-        sdcard-path-or-size: 100M
-        avd-name: test
         force-avd-creation: false
-        emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+        emulator-options: -no-snapshot-save -no-metrics -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
         disable-animations: true
         working-directory: ./test-fixture/
-        channel: canary
         pre-emulator-launch-script: |
           echo "Running pre emulator launch script. Printing the working directory now:"
           pwd
