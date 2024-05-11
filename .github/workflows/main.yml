@@ -23,7 +23,7 @@ jobs:
 #        target: [default, google_apis]
         api-level: [34]
         target: [default]
-        arch: [x86]
+        arch: [x86_64]
 
     steps:
     - name: checkout
@@ -110,7 +110,7 @@ jobs:
 
     - name: Create AVD and generate snapshot for caching
       if: steps.avd-cache.outputs.cache-hit != 'true'
-      uses: ./
+      uses: reactivecircus/android-emulator-runner@v2
       with:
         api-level: ${{ matrix.api-level }}
         force-avd-creation: false
@@ -119,7 +119,7 @@ jobs:
         script: echo "Generated AVD snapshot for caching."
 
     - name: Run tests
-      uses: ./
+      uses: reactivecircus/android-emulator-runner@v2
       # env:
       #   MAPBOX_DOWNLOADS_TOKEN: ${{ secrets.MAPBOX_DOWNLOADS_TOKEN }}
       with:
