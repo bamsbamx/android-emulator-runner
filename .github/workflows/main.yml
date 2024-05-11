@@ -81,13 +81,7 @@ jobs:
         emulator-options: -no-snapshot-save -no-metrics -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
         disable-animations: true
         working-directory: ./test-fixture/
-        pre-emulator-launch-script: |
-          echo "Running pre emulator launch script. Printing the working directory now:"
-          pwd
-        script: |
-          echo $GITHUB_REPOSITORY
-          adb devices
-          ./gradlew connectedDebugAndroidTest
+        script: ./gradlew connectedCheck
 
     # - name: Create AVD and generate snapshot for caching
     #   if: steps.avd-cache.outputs.cache-hit != 'true'
